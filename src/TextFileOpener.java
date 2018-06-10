@@ -1,5 +1,9 @@
+import java.io.File;
+import java.io.FileFilter;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import java.util.Scanner;
 
 public class TextFileOpener {
@@ -7,6 +11,9 @@ public class TextFileOpener {
 	StringBuilder sb = new StringBuilder();
 	
 	public void Pickfile() throws Exception {
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files","txt");
+		fileChooser.setFileFilter(filter);
+		
 		if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 			java.io.File file = fileChooser.getSelectedFile();
 			Scanner input = new Scanner(file);
@@ -19,7 +26,7 @@ public class TextFileOpener {
 		}
 		
 		else {
-			sb.append("ÆÄÀÏÀÌ ¼±ÅÃµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+			sb.append("íŒŒì¼ì´ ì„ íƒë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 		}
 	}
 }
